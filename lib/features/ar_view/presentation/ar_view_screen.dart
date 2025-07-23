@@ -42,18 +42,18 @@ class _ARViewScreenState extends State<ARViewScreen> {
     return Scaffold(
       appBar: _isARMode
           ? AppBar(
-              title: const Text('AR Viewer'),
-              actions: [
-                IconButton(
-                  icon: Icon(_isARMode ? Icons.view_in_ar : Icons.threed_rotation),
-                  tooltip: _isARMode ? 'Chuyển sang 3D' : 'Chuyển sang AR',
-                  onPressed: () {
-                    setState(() {
-                      _isARMode = !_isARMode;
-                    });
-                  },
-                ),
-              ],
+        title: const Text('AR Viewer'),
+        actions: [
+          IconButton(
+            icon: Icon(_isARMode ? Icons.view_in_ar : Icons.threed_rotation),
+            tooltip: _isARMode ? 'Chuyển sang 3D' : 'Chuyển sang AR',
+            onPressed: () {
+              setState(() {
+                _isARMode = !_isARMode;
+              });
+            },
+          ),
+        ],
             )
           : null,
       body: Stack(
@@ -152,37 +152,37 @@ class _ARViewScreenState extends State<ARViewScreen> {
                   Positioned(
                     bottom: 32,
                     left: 24,
-                    child: Card(
+                  child: Card(
                       color: Colors.black.withOpacity(0.7),
                       elevation: 4,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        child: Row(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      child: Row(
                           mainAxisSize: MainAxisSize.min,
-                          children: [
+                        children: [
                             const Icon(Icons.zoom_out, color: Colors.white),
                             SizedBox(
                               width: 120,
-                              child: Slider(
-                                value: _sliderScale,
-                                min: 0.05,
-                                max: 1.0,
-                                divisions: 19,
+                            child: Slider(
+                              value: _sliderScale,
+                              min: 0.05,
+                              max: 1.0,
+                              divisions: 19,
                                 onChanged: _isLocked ? null : (value) {
-                                  setState(() {
-                                    _sliderScale = value;
-                                    _replaceNode(position: _lastPosition, scale: _sliderScale);
-                                  });
-                                },
-                              ),
+                                      setState(() {
+                                        _sliderScale = value;
+                                        _replaceNode(position: _lastPosition, scale: _sliderScale);
+                                      });
+                                    },
                             ),
+                          ),
                             const Icon(Icons.zoom_in, color: Colors.white),
                           ],
                         ),
-                      ),
-                    ),
+                          ),
                   ),
+                ),
               ],
             ),
           ),
